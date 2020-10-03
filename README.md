@@ -12,7 +12,7 @@ This repository contains the code & annotation data for our ICCV 2019 paper: ['D
 ## Requirements
 
 - Please install OpenCV
-- Please install Python 2.7
+- Please install Python 3
 - Please install tensorflow-gpu
 
 Our code has been tested by using tensorflow-gpu==1.10.1 & OpenCV==3.1.0. We used Nvidia Titan Xp GPU with CUDA 9.0 installed.
@@ -20,7 +20,8 @@ Our code has been tested by using tensorflow-gpu==1.10.1 & OpenCV==3.1.0. We use
 ## Python packages
 
 - [numpy]
-- [scipy]
+- [skimage]
+- [imageio]
 - [Pillow]
 - [matplotlib]
 
