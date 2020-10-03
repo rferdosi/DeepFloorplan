@@ -1,9 +1,14 @@
 import os
 import argparse
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
 
-from scipy.misc import imread, imsave, imresize
+from skimage.transform import resize as imresize
+
+import numpy
+
+
+from imageio import imread
 from matplotlib import pyplot as plt
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
@@ -34,14 +39,14 @@ floorplan_map = {
 def ind2rgb(ind_im, color_map=floorplan_map):
 	rgb_im = np.zeros((ind_im.shape[0], ind_im.shape[1], 3))
 
-	for i, rgb in color_map.iteritems():
+	for i, rgb in color_map.items():
 		rgb_im[(ind_im==i)] = rgb
 
 	return rgb_im
 
 def main(args):
 	# load input
-	im = imread(args.im_path, mode='RGB')
+	im = imread(args.im_path, pilmode='RGB')
 	im = im.astype(np.float32)
 	im = imresize(im, (512,512,3)) / 255.
 
